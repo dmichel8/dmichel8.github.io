@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mechanics</title>
+  <link rel="stylesheet" type="text/css" href="kinematic.css" /> 
+  <script>
+    MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    };
+  </script>
+  <script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+
+<body>
+  <section class="app-frame">
+  <main class="app">
+  <div id="stageWrap">
+    <canvas id="stage"></canvas>
+  </div>
+  <aside>
+    <h1>Inelastic Collisions</h1>
+
+    <div class="btnbar">
+      <button id="resetBtn" class="primary">Reset</button>
+      <button id="pauseBtn">Pause</button>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div>
+        <label for="m1">Mass A (kg)</label>
+        <input id="m1" type="number" min="0.1" step="0.1" value="1.5" />
+      </div>
+      <div>
+        <label for="m2">Mass B (kg)</label>
+        <input id="m2" type="number" min="0.1" step="0.1" value="2.5" />
+      </div>
+    </div>
+    <div>
+      <label for="dt_in"></label>
+      <input id="dt_in" type="range" min = "0.1" max="2" step = "0.1", value = "1" />
+    </div>
+
+    <div id="simspeed"></div>
+
+    <h2>Live State</h2>
+    <div id="live"></div>
+
+    <h2>Last Collision (Perfectly Inelastic)</h2>
+    <div id="collisionInfo" class="kv">No collision yet.</div>
+
+    
+  </aside>
+  </main>
+  </section>
+
+
+  <section class="page-content">
+  <h2><u>About Perfectly Inelastic Collisions</u></h2>
+  <p>If we have 2 masses, $m_{1}$ and $m_{2}$, with velocities $\vec{\textbf{v}}_{1}$ and $\vec{\textbf{v}}_{2}$, respectively, and we assume they'll just
+    head straight on and stick to each other, because of Newton's conservation of momentum, we find that:
+  </p>
+  <p>$$m_{1} \vec{\textbf{v}}_{1i} + m_{2} \vec{\textbf{v}}_{2i} = (m_{1} + m_{2}) \vec{\textbf{v}}_{f}$$</p>
+  <p>
+    Where $i$ and $f$ are initial and final, respectively. With this equation, we can then solve for the final velocity:
+  </p>
+  <p>
+    $$\vec{\textbf{v}}_{f} = \frac{m_{1} \vec{\textbf{v}}_{1i} + m_{2} \vec{\textbf{v}}_{2i}}{m_{1} + m_{2}}$$
+  </p>
+  <p>
+    I basically made this simulation because I am punishing myself for being a physics major and forgetting that the kinetic energy in a 
+    inelastic collision system is not conserved. Remember that the kinetic energy equation is:
+  </p>
+  <p>
+    $$K.E. = \frac{1}{2}m \vec{\textbf{v}}^{2}$$
+  </p>
+  <p>
+    And that the kinetic energy lost is the kinetic energy of all objects added, minus the kinetic energy after the collision. Of course, you can find the
+    pre-collision kinetic energies by calculating the equations above for each, then the final kinetic energy from the inelastic final velocity and the combined 
+    mass.
+  </p>
+  <br>
+  <br>
+
+  <p style="font-size: 10px">Background retrieved from <a href="https://in.pinterest.com/pin/1013802566821623510/" target="_blank">here</a>. All code content here let fall under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPLv3</a>. All images are of other copyrights. Though code generated for physics and the website itself were designed by me, as well as the equations I have written, the simulation environment was a small collaborative effort between friends. As a result, I choose to hold no rights for the source. MathJax was used for rendering of equations.</p>
+  <br>
+  <br>
+  <br>
+  <br>
+  </section>
+  
+
+  <script src="kinematic.js"></script>
+</body>
+
+</html>
+
